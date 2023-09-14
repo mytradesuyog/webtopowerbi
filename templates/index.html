@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MTP 2022 Forcasting Funnel Book</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            color: #003865;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 20px auto; /* Added 20px margin from the top */
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: left;
+            
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+            color:#003865;
+        }
+
+        select, input[type="file"], input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            font-size: smaller;
+        }
+
+        input[type="file"] {
+            padding: 0;
+        }
+
+        input[type="submit"] {
+            background-color: #D0006F;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #3F4444;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>MTP 2022 Forcasting Funnel Book</h2>
+
+        <form method="POST" enctype="multipart/form-data">
+            <label for="brand">Brand:</label>
+            <select id="brand" name="brand">
+                {% for brand in brands %}
+                    <option value="{{ brand }}">{{ brand }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="market">Market:</label>
+            <select id="market" name="market">
+                {% for market in markets %}
+                    <option value="{{ market }}">{{ market }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="extra">Extra:</label>
+            <select id="extra" name="extra">
+                {% for extra in extras %}
+                    <option value="{{ extra }}">{{ extra }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="file">Upload Excel File(s):</label>
+            <input type="file" name="file">
+
+            <input type="submit" value="Upload">
+        </form>
+    </div>
+</body>
+</html>
